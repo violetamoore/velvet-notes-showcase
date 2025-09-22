@@ -6,47 +6,57 @@ const Hero = () => {
   const { t } = useLanguage();
   
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src={heroImage} 
-          alt="Jazz performance in an intimate cabaret setting"
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />
-      </div>
-      
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background/95 to-muted/30">
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="font-display text-6xl md:text-8xl font-light mb-6 animate-float tracking-tight">
-          <span className="text-gradient-elegant">Violeta</span>{" "}
-          <span className="text-gradient-silver">Moore</span>
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-light tracking-wide">
-          {t('heroSubtitle')}
-        </p>
-        
-        <p className="text-lg md:text-xl text-foreground/70 mb-16 max-w-2xl mx-auto leading-relaxed font-light">
-          {t('heroDescription')}
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <Button 
-            variant="hero" 
-            size="lg"
-          >
-            {t('viewPerformances')}
-          </Button>
+      <div className="relative z-10 px-6 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Profile Image */}
+          <div className="flex justify-center lg:order-2">
+            <div className="relative">
+              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-elegant border-4 border-primary/20 bg-gradient-elegant p-1">
+                <img 
+                  src={heroImage} 
+                  alt="Violeta Moore - Jazz Singer and Burlesque Artist"
+                  className="w-full h-full object-cover object-center rounded-full"
+                />
+              </div>
+              {/* Decorative glow */}
+              <div className="absolute inset-0 rounded-full bg-gradient-elegant opacity-20 blur-xl scale-110 -z-10" />
+            </div>
+          </div>
           
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="border-primary text-primary hover:bg-primary/5 transition-all duration-500 font-light tracking-wide"
-          >
-            {t('contactBooking')}
-          </Button>
+          {/* Text Content */}
+          <div className="text-center lg:text-left lg:order-1">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light mb-6 animate-float tracking-tight">
+              <span className="text-gradient-elegant">Violeta</span>{" "}
+              <span className="text-gradient-silver">Moore</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-light tracking-wide">
+              {t('heroSubtitle')}
+            </p>
+            
+            <p className="text-lg md:text-xl text-foreground/70 mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+              {t('heroDescription')}
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center">
+              <Button 
+                variant="hero" 
+                size="lg"
+              >
+                {t('viewPerformances')}
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-primary text-primary hover:bg-primary/5 transition-all duration-500 font-light tracking-wide"
+              >
+                {t('contactBooking')}
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
       
