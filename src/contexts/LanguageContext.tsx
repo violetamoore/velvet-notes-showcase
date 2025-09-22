@@ -12,6 +12,13 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const translations = {
   en: {
+    // Navigation
+    home: "Home",
+    about: "About", 
+    performances: "Performances",
+    contact: "Contact",
+    bookNow: "Book Now",
+    
     // Hero Section
     heroSubtitle: "Jazz Singer • Cabaret Artist • Burlesque Performer",
     heroDescription: "Bringing the golden age of jazz to life with sophisticated artistry and timeless elegance in every performance.",
@@ -46,6 +53,11 @@ const translations = {
     bookPrivateDesc: "Create an unforgettable experience with a customized performance tailored to your special event or venue.",
     performanceGallery: "Performance Gallery",
     
+    // Video Gallery
+    videoGallery: "Video Gallery", 
+    instagramButton: "Follow @violeta_moore on Instagram",
+    instagramText: "Want to see more? Check out Violeta Moore's Instagram account for behind-the-scenes content and latest performances.",
+    
     // Contact Section
     contactTitle: "Get in Touch",
     contactSubtitle: "Ready to bring sophisticated entertainment to your venue or event? Let's discuss how we can create an unforgettable experience together.",
@@ -78,6 +90,13 @@ const translations = {
     sendMessageBtn: "Send Message"
   },
   es: {
+    // Navigation
+    home: "Inicio",
+    about: "Acerca", 
+    performances: "Actuaciones",
+    contact: "Contacto",
+    bookNow: "Reservar",
+    
     // Hero Section
     heroSubtitle: "Cantante de Jazz • Artista de Cabaret • Intérprete de Burlesque",
     heroDescription: "Dando vida a la edad dorada del jazz con arte sofisticado y elegancia atemporal en cada actuación.",
@@ -111,6 +130,11 @@ const translations = {
     bookPrivate: "Reservar una Actuación Privada",
     bookPrivateDesc: "Crea una experiencia inolvidable con una actuación personalizada adaptada a tu evento especial o lugar.",
     performanceGallery: "Galería de Actuaciones",
+    
+    // Video Gallery
+    videoGallery: "Galería de Videos",
+    instagramButton: "Seguir @violeta_moore en Instagram", 
+    instagramText: "¿Quieres ver más? Visita la cuenta de Instagram de Violeta Moore para contenido detrás de escenas y últimas actuaciones.",
     
     // Contact Section
     contactTitle: "Ponte en Contacto",

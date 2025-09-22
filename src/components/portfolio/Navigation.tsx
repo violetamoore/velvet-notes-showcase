@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Globe } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,10 +24,10 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { label: "Home", id: "hero" },
-    { label: "About", id: "about" },
-    { label: "Performances", id: "performances" },
-    { label: "Contact", id: "contact" },
+    { label: t('home'), id: "hero" },
+    { label: t('about'), id: "about" },
+    { label: t('performances'), id: "performances" },
+    { label: t('contact'), id: "contact" },
   ];
 
   return (
@@ -35,19 +38,25 @@ const Navigation = () => {
     }`}>
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 rounded-full bg-gradient-elegant p-0.5">
-              <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                <span className="text-lg font-display font-light text-gradient-elegant tracking-wide">SR</span>
-              </div>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="font-display text-xl font-light tracking-wide">
-                <span className="text-gradient-elegant">Sophia</span>{" "}
-                <span className="text-gradient-silver">Rose</span>
-              </h1>
-            </div>
+          {/* Language Selector */}
+          <div className="flex items-center space-x-2 bg-background/80 backdrop-blur-sm border border-border/30 rounded-full p-2 shadow-soft">
+            <Globe className="w-4 h-4 text-muted-foreground" />
+            <Button
+              variant={language === 'en' ? 'default' : 'ghost'}
+              size="sm"
+              onClick={() => setLanguage('en')}
+              className="h-8 px-3 text-sm font-light"
+            >
+              EN
+            </Button>
+            <Button
+              variant={language === 'es' ? 'default' : 'ghost'}
+              size="sm"
+              onClick={() => setLanguage('es')}
+              className="h-8 px-3 text-sm font-light"
+            >
+              ES
+            </Button>
           </div>
 
           {/* Navigation Items */}
@@ -70,7 +79,7 @@ const Navigation = () => {
             className="border-primary text-primary hover:bg-primary/5 font-light tracking-wide"
             onClick={() => scrollToSection("contact")}
           >
-            Book Now
+            {t('bookNow')}
           </Button>
 
           {/* Mobile Menu Button */}

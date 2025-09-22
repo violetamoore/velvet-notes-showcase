@@ -1,5 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Instagram } from "lucide-react";
 import violeta1 from "@/assets/violeta-1.jpg";
 import violeta2 from "@/assets/violeta-2.jpg";
 import violeta3 from "@/assets/violeta-3.jpg";
@@ -8,37 +11,39 @@ import violeta5 from "@/assets/violeta-5.jpg";
 import violeta6 from "@/assets/violeta-6.jpg";
 
 const Performances = () => {
+  const { t } = useLanguage();
+  
   const performances = [
     {
-      title: "Feather Dreams",
+      title: t('featherDreams'),
       venue: "The Grand Theater",
       date: "Monthly Shows",
       type: "Burlesque",
-      description: "An elegant burlesque performance featuring luxurious white feathers and sophisticated choreography that captivates audiences.",
+      description: t('featherDreamsDesc'),
       highlights: ["Feather Choreography", "Elegant Costumes", "Theatrical Storytelling"]
     },
     {
-      title: "Vintage Glamour Revue",
+      title: t('vintageGlamour'),
       venue: "The Velvet Room", 
       date: "Saturday Evenings",
       type: "Cabaret",
-      description: "A theatrical cabaret experience that transports audiences to the golden age of entertainment with stunning costumes and storytelling.",
+      description: t('vintageGlamourDesc'),
       highlights: ["Period Costumes", "Interactive Performance", "Vintage Music"]
     },
     {
-      title: "Noir Mystique",
+      title: t('noirMystique'),
       venue: "The Speakeasy Lounge",
       date: "Friday Nights",
       type: "Performance Art",
-      description: "A sophisticated artistic performance combining elements of burlesque, dance, and theatrical storytelling in black and white elegance.",
+      description: t('noirMystiqueDesc'),
       highlights: ["Artistic Expression", "Black & White Theme", "Contemporary Dance"]
     },
     {
-      title: "White Feather Fantasy",
+      title: t('whiteFeather'),
       venue: "Private Events",
       date: "By Appointment",
       type: "Custom Shows",
-      description: "Bespoke performances tailored for special events, featuring elaborate feather work and personalized choreography.",
+      description: t('whiteFeatherDesc'),
       highlights: ["Custom Choreography", "Event Theming", "Professional Production"]
     }
   ];
@@ -58,12 +63,11 @@ const Performances = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="font-display text-5xl md:text-6xl font-light mb-8 tracking-tight">
-            <span className="text-gradient-silver">Featured</span>{" "}
-            <span className="text-gradient-elegant">Performances</span>
+            <span className="text-gradient-silver">{t('performancesTitle').split(' ')[0]}</span>{" "}
+            <span className="text-gradient-elegant">{t('performancesTitle').split(' ')[1]}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
-            Experience the magic of live performance through a curated selection 
-            of signature shows and regular appearances.
+            {t('performancesSubtitle')}
           </p>
         </div>
 
@@ -114,11 +118,10 @@ const Performances = () => {
         <div className="text-center mt-20">
           <Card className="inline-block p-10 bg-gradient-elegant border-primary/20 shadow-elegant">
             <h3 className="font-display text-2xl font-light text-primary-foreground mb-6 tracking-wide">
-              Book a Private Performance
+              {t('bookPrivate')}
             </h3>
             <p className="text-primary-foreground/90 mb-8 max-w-md font-light leading-relaxed">
-              Create an unforgettable experience with a customized performance 
-              tailored to your special event or venue.
+              {t('bookPrivateDesc')}
             </p>
             <div className="space-y-3 text-primary-foreground/80 text-sm font-light">
               <div>• Corporate Events & Galas</div>
@@ -132,7 +135,7 @@ const Performances = () => {
         {/* Photo Gallery */}
         <div className="mt-32">
           <h3 className="font-display text-3xl font-light text-gradient-elegant mb-16 text-center tracking-wide">
-            Performance Gallery
+            {t('performanceGallery')}
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -148,6 +151,42 @@ const Performances = () => {
                 </div>
               </Card>
             ))}
+          </div>
+        </div>
+
+        {/* Video Gallery */}
+        <div className="mt-32">
+          <h3 className="font-display text-3xl font-light text-gradient-elegant mb-16 text-center tracking-wide">
+            {t('videoGallery')}
+          </h3>
+          
+          <div className="text-center">
+            <Card className="inline-block p-12 bg-gradient-card border-border/30 shadow-soft hover:shadow-elegant transition-all duration-500">
+              <div className="space-y-8 max-w-md">
+                <div className="w-20 h-20 mx-auto bg-gradient-elegant rounded-full flex items-center justify-center">
+                  <Instagram className="w-10 h-10 text-primary-foreground" />
+                </div>
+                
+                <div className="space-y-4">
+                  <h4 className="font-display text-xl font-light text-gradient-elegant tracking-wide">
+                    {t('videoGallery')}
+                  </h4>
+                  <p className="text-muted-foreground font-light leading-relaxed">
+                    {t('instagramText')}
+                  </p>
+                </div>
+                
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-primary text-primary hover:bg-primary/5 transition-all duration-500 font-light tracking-wide"
+                  onClick={() => window.open('https://instagram.com/violeta_moore', '_blank')}
+                >
+                  <Instagram className="w-5 h-5 mr-2" />
+                  {t('instagramButton')}
+                </Button>
+              </div>
+            </Card>
           </div>
         </div>
       </div>
